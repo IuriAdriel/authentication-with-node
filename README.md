@@ -1,4 +1,4 @@
-# Awesome Project Build with TypeORM
+# Project instructions
 
 Steps to run this project:
 
@@ -9,5 +9,7 @@ Steps to run this project:
 5. Run `yarn dev` command
 
 `Notes:`
+
 `SALT_KEY` is used to increment extra key on password.
+
 `SECRET_KEY` is used to encrypt/decrypt jwt token.
