@@ -1,6 +1,6 @@
-import { User } from "../../domain/entity/User";
-import { IUserService } from "../../domain/service/interface/IUserService";
-import UserFilter from "../../domain/filter/UserFilter";
+import { User } from "../domain/entity/User";
+import { IUserService } from "../domain/service/interface/IUserService";
+import UserFilter from "../domain/filter/UserFilter";
 
 export default class UserApplication {
     constructor(private readonly userService: IUserService) {}

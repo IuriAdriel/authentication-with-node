@@ -1,5 +1,5 @@
-import AuthApplication from "../controller/AuthApplication";
-import UserApplication from "../controller/UserApplication";
+import AuthApplication from "../AuthApplication";
+import UserApplication from "../UserApplication";
 import { createUserService, createRefreshTokenService } from "./CreateService";
 
 export const createAuthApplication = new AuthApplication(

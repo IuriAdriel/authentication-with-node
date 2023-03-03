@@ -1,9 +1,9 @@
 import { Request } from "express";
-import { RefreshToken } from "../../domain/entity/RefreshToken";
-import { User } from "../../domain/entity/User";
-import { IRefreshTokenService } from "../../domain/service/interface/IRefreshTokenService";
-import { IUserService } from "../../domain/service/interface/IUserService";
-import TokenJwt from "../../infra/auth/TokenJwt";
+import { RefreshToken } from "../domain/entity/RefreshToken";
+import { User } from "../domain/entity/User";
+import { IRefreshTokenService } from "../domain/service/interface/IRefreshTokenService";
+import { IUserService } from "../domain/service/interface/IUserService";
+import TokenJwt from "../infra/auth/TokenJwt";
 
 export default class AuthApplication {
     constructor(
