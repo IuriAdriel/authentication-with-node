@@ -1,6 +1,5 @@
 import { User } from "../../domain/entity/User";
 import BaseRepository from "./base/BaseRepository";
-import { Like } from "typeorm";
 import { IUserRepository } from "./interface/IUserRepository";
 import UserFilter from "../../domain/filter/UserFilter";
 

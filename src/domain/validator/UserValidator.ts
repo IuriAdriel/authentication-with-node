@@ -50,7 +50,7 @@ export class UserValidator {
             password: "required|min:5|max:15",
         };
         const customMessages = {
-            "required.password": "A senha deve ser preenchida",
+            "required.password": "A senha deve ser preenchida.",
             "min.password": "A senha deve ter pelo menos 5 caracteres.",
             "max.password": "A senha deve ter no máximo 15 caracteres.",
         };
