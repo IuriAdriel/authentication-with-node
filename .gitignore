@@ -7,3 +7,4 @@ temp/
 
 .env
 yarn.lock
+yarn-error.log
