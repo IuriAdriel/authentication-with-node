@@ -11,5 +11,6 @@ export interface IUserService {
     find(userFilter: UserFilter): Promise<[User[], number] | null>;
     findByEmail(email: string): Promise<User | null>;
     updateAge(id: number, age: number): Promise<void>;
+    updatePassword(id: number, password: string): Promise<void>;
     passwordVerify(email: string, password: string): Promise<User>;
 }

@@ -30,7 +30,7 @@ export default class UserService implements IUserService {
     }
     async create(user: User): Promise<User> {
         await this.userValidator.validateCreate(user);
-        await this.userValidator.validatePassword(user);
+        await this.userValidator.validatePassword(user.password);
         user.password = CryptoLib.encrypt(user.password.trim());
         await this.repository.create(user);
         return user;
@@ -77,5 +77,16 @@ export default class UserService implements IUserService {
             return user;
         }
         throw new Error("Dados incorretos.");
+    }
+    async updatePassword(id: number, password: string): Promise<void> {
+        await this.userValidator.validatePassword(password);
+        password = CryptoLib.encrypt(password.trim());
+        if (await this.exists(id)) {
+            await this.repository.updatePartial(id, { password });
+        } else {
+            throw new Error(
+                `Não foi possível atualizar a senha pois a entidade com id ${id} não foi encontrada`
+            );
+        }
     }
 }

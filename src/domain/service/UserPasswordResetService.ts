@@ -16,4 +16,8 @@ export default class UserPasswordResetService
         userPasswordReset.user = user;
         return await this.repository.create(userPasswordReset);
     }
+    async findByToken(token: string): Promise<UserPasswordReset> {
+        const userPasswordReset = await this.repository.findByToken(token);
+        return userPasswordReset;
+    }
 }

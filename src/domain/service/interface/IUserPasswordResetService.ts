@@ -3,4 +3,5 @@ import { UserPasswordReset } from "../../entity/UserPasswordReset";
 
 export interface IUserPasswordResetService {
     create(user: User): Promise<UserPasswordReset>;
+    findByToken(token: string): Promise<UserPasswordReset>;
 }

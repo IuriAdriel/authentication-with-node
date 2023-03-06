@@ -45,7 +45,10 @@ export class UserValidator {
         };
         await validate(user, rules, customMessages);
     }
-    async validatePassword(user: User) {
+    async validatePassword(password: string) {
+        const data = {
+            password: password,
+        };
         const rules = {
             password: "required|min:5|max:15",
         };
@@ -54,7 +57,7 @@ export class UserValidator {
             "min.password": "A senha deve ter pelo menos 5 caracteres.",
             "max.password": "A senha deve ter no máximo 15 caracteres.",
         };
-        await validate(user, rules, customMessages);
+        await validate(data, rules, customMessages);
     }
     async validateUserExists(user: User) {
         const rules = {

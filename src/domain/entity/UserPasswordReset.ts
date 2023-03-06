@@ -13,6 +13,7 @@ export class UserPasswordReset {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column({ unique: true })
     @Column()
     token!: string;
 
