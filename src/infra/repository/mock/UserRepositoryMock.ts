@@ -2,9 +2,25 @@ import { User } from "../../../domain/entity/User";
 import UserFilter from "../../../domain/filter/UserFilter";
 import { IUserRepository } from "../interface/IUserRepository";
 
-export default class MockUserRepository
-    implements IUserRepository, IBaseRepository<User>
-{
+export default class MockUserRepository implements IUserRepository {
+    private users: User[] = [
+        {
+            id: 1,
+            name: "John Snow",
+            email: "john@example.com",
+            password: "44234242342",
+            age: 20,
+            deleted: false,
+        },
+        {
+            id: 2,
+            name: "Jane",
+            email: "jane@example.com",
+            password: "42423423423432",
+            age: 30,
+            deleted: false,
+        },
+    ];
     async findByEmail(email: string): Promise<User> {
         const user = this.users.find((user) => user.email === email);
         return user || null;
@@ -31,24 +47,6 @@ export default class MockUserRepository
         const user = this.users.find((user) => user.id === id);
         return user ? true : false;
     }
-    private users: User[] = [
-        {
-            id: 1,
-            name: "John Snow",
-            email: "john@example.com",
-            password: "44234242342",
-            age: 20,
-            deleted: false,
-        },
-        {
-            id: 2,
-            name: "Jane",
-            email: "jane@example.com",
-            password: "42423423423432",
-            age: 30,
-            deleted: false,
-        },
-    ];
 
     async findById(id: number): Promise<User | null> {
         const user = this.users.find((user) => user.id === id);

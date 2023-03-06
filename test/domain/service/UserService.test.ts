@@ -1,9 +1,15 @@
 import { describe, expect, test } from "@jest/globals";
+import { fail } from "assert";
 import { User } from "../../../src/domain/entity/User";
 import UserService from "../../../src/domain/service/UserService";
 import MockUserRepository from "../../../src/infra/repository/mock/UserRepositoryMock";
 
 describe("Consulta de usuários", () => {
+    test("Deve retornar null", async () => {
+        const userService = new UserService(new MockUserRepository());
+        const user = await userService.findById(0);
+        expect(user).toBeNull();
+    });
     test("Deve retornar o usuário John Snow.", async () => {
         const userService = new UserService(new MockUserRepository());
         const user = await userService.findById(1);
@@ -17,6 +23,7 @@ describe("Cadastro de usuários", () => {
             const user: User = new User();
             user.name = "Iuri Adriel";
             await userService.create(user);
+            fail("Não deveria ter cadastrado o usuário.");
         } catch (error) {
             expect(String(error)).toBe("Error: O e-mail deve ser preenchido.");
         }
