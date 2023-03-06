@@ -10,4 +10,14 @@ export class CryptoLib {
             .update(`${text}${customSalt}`)
             .digest("hex");
     }
+    static generateCustomRandomKey(customValue1: string) {
+        let randomKey = crypto.randomBytes(48).toString("hex");
+        const now = String(new Date().getTime());
+        const md5Now = crypto
+            .createHash("md5")
+            .update(`${now}${customValue1}`)
+            .digest("hex");
+        const refreshToken = `${md5Now}${randomKey}`;
+        return refreshToken;
+    }
 }

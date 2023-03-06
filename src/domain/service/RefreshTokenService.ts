@@ -1,5 +1,5 @@
 import { IRefreshTokenService } from "./interface/IRefreshTokenService";
-import { IRefreshTokenRepository } from "../../infra/repository/interface/IRefreshToken";
+import { IRefreshTokenRepository } from "../../infra/repository/interface/IRefreshTokenRepository";
 import { RefreshToken } from "../entity/RefreshToken";
 import TokenJwt from "../../infra/auth/TokenJwt";
 import RefreshTokenRule from "../rule/RefreshTokenRule";

@@ -19,14 +19,14 @@ export class RefreshToken {
     @Column()
     active: boolean;
 
-    @Column()
+    @Column({ type: "timestamp" })
     expirationAt!: Date;
 
     @Column()
     deleted!: boolean;
 
-    @ManyToOne(() => User, (user) => user.refreshTokens)
+    @ManyToOne(() => User, (user) => user.refreshToken)
     @JoinColumn({ name: "userId" })
-    @Index("idx_fk_refreshToken_userId")
+    @Index("idx_fk_refresh_token_userId")
     user!: User;
 }

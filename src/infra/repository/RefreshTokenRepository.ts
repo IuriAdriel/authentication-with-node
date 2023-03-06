@@ -1,6 +1,6 @@
 import { RefreshToken } from "../../domain/entity/RefreshToken";
 import BaseRepository from "./base/BaseRepository";
-import { IRefreshTokenRepository } from "./interface/IRefreshToken";
+import { IRefreshTokenRepository } from "./interface/IRefreshTokenRepository";
 
 export class RefreshTokenRepository
     extends BaseRepository<RefreshToken>

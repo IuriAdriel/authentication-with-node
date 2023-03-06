@@ -24,4 +24,9 @@ export default class UserApplication {
     async find(userFilter: UserFilter) {
         return await this.userService.find(userFilter);
     }
+    async createPasswordResetLink(email: string) {
+        const user = await this.userService.findByEmail(email);
+        // verificar se o e-mail existe
+        // caso exista, criar um registro na tabela user_password_reset (id, userId, token, expirationAt, used, usedAt)
+    }
 }

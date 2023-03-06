@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { RefreshToken } from "./RefreshToken";
+import { UserPasswordReset } from "./UserPasswordReset";
 
 @Entity()
 export class User {
@@ -22,5 +23,11 @@ export class User {
     deleted: boolean;
 
     @OneToMany(() => RefreshToken, (refreshToken) => refreshToken.user)
-    refreshTokens?: RefreshToken[] | undefined;
+    refreshToken?: RefreshToken[] | undefined;
+
+    @OneToMany(
+        () => UserPasswordReset,
+        (userPasswordReset) => userPasswordReset.user
+    )
+    userPasswordReset?: UserPasswordReset[] | undefined;
 }

@@ -3,7 +3,6 @@ import { IUserRepository } from "../../infra/repository/interface/IUserRepositor
 import { UserValidator } from "../validator/UserValidator";
 import { IUserService } from "./interface/IUserService";
 import { CryptoLib } from "../../util/encrypt/CryptoLib";
-import Pagination from "../../util/data/Pagination";
 import UserFilter from "../filter/UserFilter";
 
 export default class UserService implements IUserService {
@@ -11,7 +10,6 @@ export default class UserService implements IUserService {
     constructor(private readonly repository: IUserRepository) {
         this.userValidator = new UserValidator(this);
     }
-
     async findById(id: number): Promise<User> {
         if (id > 0) {
             const user = await this.repository.findById(id);
