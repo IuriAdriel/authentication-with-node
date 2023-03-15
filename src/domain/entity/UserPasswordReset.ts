@@ -6,10 +6,11 @@ import {
     JoinColumn,
     Index,
 } from "typeorm";
+import { Base } from "./base/BaseEntity";
 import { User } from "./User";
 
 @Entity("user_password_reset")
-export class UserPasswordReset {
+export class UserPasswordReset extends Base {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -26,10 +27,7 @@ export class UserPasswordReset {
     @Column({ type: "timestamp", nullable: true })
     usedAt?: Date;
 
-    @Column({ default: false })
-    deleted: boolean;
-
-    @ManyToOne(() => User, (user) => user.userPasswordReset)
+    @ManyToOne((type) => User)
     @JoinColumn({ name: "userId" })
     @Index("idx_fk_user_password_reset_userId")
     user!: User;

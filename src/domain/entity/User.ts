@@ -1,9 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { RefreshToken } from "./RefreshToken";
-import { UserPasswordReset } from "./UserPasswordReset";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Base } from "./base/BaseEntity";
 
 @Entity()
-export class User {
+export class User extends Base {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -18,16 +17,4 @@ export class User {
 
     @Column()
     age: number;
-
-    @Column({ default: false })
-    deleted: boolean;
-
-    @OneToMany(() => RefreshToken, (refreshToken) => refreshToken.user)
-    refreshToken?: RefreshToken[] | undefined;
-
-    @OneToMany(
-        () => UserPasswordReset,
-        (userPasswordReset) => userPasswordReset.user
-    )
-    userPasswordReset?: UserPasswordReset[] | undefined;
 }
